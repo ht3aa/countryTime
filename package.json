@@ -1,0 +1,19 @@
+{
+  "name": "countrytime",
+  "version": "1.0.0",
+  "description": "dynamic display to your country time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ht3aa/countryTime.git"
+  },
+  "author": "ht3aa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ht3aa/countryTime/issues"
+  },
+  "homepage": "https://github.com/ht3aa/countryTime#readme"
+}

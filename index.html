@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <span id="time"></span>
+
+    <script>
+
+        class CountryTime {
+            value;
+            displayElement;
+            amPm;
+
+
+
+            timeIn12Format(date) {
+                this.value = `${(date.getHours() % 12).toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`
+                return this;
+            }
+
+            element(displayElement) {
+                this.displayElement = displayElement
+                return this;
+            }
+
+            addAmPm() {
+                this.amPm = true
+                return this;
+            }
+
+            amOrPm(date) {
+                return date.getHours() - 12 > 0 ? "PM" : "AM"
+            }
+
+            realTime() {
+
+                let date;
+                if (this.amPm) {
+                    setInterval(() => {
+                        console.log('hi')
+                        date = new Date();
+                        this.displayElement.innerText = `${this.timeIn12Format(date).value} ${this.amOrPm(date)}`;
+
+                    }, 30000)
+                } else {
+
+                    setInterval(() => {
+                        date = new Date();
+                        this.displayElement.innerText = this.timeIn12Format(date).value;
+                    }, 30000)
+                }
+
+            }
+
+
+        }
+
+        const countryTime = new CountryTime();
+
+        countryTime.element(document.getElementById('time')).realTime()
+    </script>
+</body>
+
+</html>
